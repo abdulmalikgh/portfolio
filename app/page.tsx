@@ -9,6 +9,7 @@ export default function Home() {
       <Navigation />
       <Hero />
       <About />
+      <Experience />
       <Skills />
       <Projects />
       <Contact />
@@ -42,11 +43,11 @@ function Navigation() {
           whileHover={{ scale: 1.05 }}
         >
           <span className="text-white">Portfolio</span>
-          <span className="text-blue-500">.</span>
+          <span className="text-emerald-500">.</span>
         </motion.div>
 
         <div className="hidden md:flex gap-8">
-          {["About", "Skills", "Projects", "Contact"].map((item, i) => (
+          {["About", "Experience", "Skills", "Projects", "Contact"].map((item, i) => (
             <motion.a
               key={item}
               href={`#${item.toLowerCase()}`}
@@ -71,7 +72,7 @@ function Hero() {
       {/* Animated background elements */}
       <div className="absolute inset-0 overflow-hidden">
         <motion.div
-          className="absolute top-1/4 -left-20 w-72 h-72 bg-blue-500/10 rounded-full blur-3xl"
+          className="absolute top-1/4 -left-20 w-72 h-72 bg-emerald-500/10 rounded-full blur-3xl"
           animate={{
             scale: [1, 1.2, 1],
             opacity: [0.3, 0.5, 0.3],
@@ -111,7 +112,7 @@ function Hero() {
             <span className="text-white">Hi, I'm </span>
             <br />
             <motion.span
-              className="bg-gradient-to-r from-blue-500 to-purple-500 bg-clip-text text-transparent"
+              className="bg-gradient-to-r from-emerald-500 to-purple-500 bg-clip-text text-transparent"
               animate={{
                 backgroundPosition: ["0% 50%", "100% 50%", "0% 50%"],
               }}
@@ -121,7 +122,7 @@ function Hero() {
                 ease: "linear",
               }}
             >
-              Your Name
+              Abdul-Malik Musah
             </motion.span>
           </motion.h1>
 
@@ -142,7 +143,7 @@ function Hero() {
           >
             <motion.a
               href="#projects"
-              className="px-8 py-4 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors"
+              className="px-8 py-4 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
@@ -167,7 +168,7 @@ function Hero() {
         >
           <div className="w-6 h-10 border-2 border-gray-600 rounded-full flex justify-center">
             <motion.div
-              className="w-1.5 h-3 bg-blue-500 rounded-full mt-2"
+              className="w-1.5 h-3 bg-emerald-500 rounded-full mt-2"
               animate={{ y: [0, 12, 0] }}
               transition={{ duration: 2, repeat: Infinity }}
             />
@@ -190,7 +191,7 @@ function About() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center font-[var(--font-space-grotesk)]">
             <span className="text-white">About </span>
-            <span className="text-blue-500">Me</span>
+            <span className="text-emerald-500">Me</span>
           </h2>
 
           <div className="grid md:grid-cols-2 gap-12 items-center">
@@ -200,7 +201,7 @@ function About() {
               viewport={{ once: true }}
               transition={{ duration: 0.8 }}
             >
-              <div className="aspect-square rounded-2xl bg-gradient-to-br from-blue-500/20 to-purple-500/20 p-1">
+              <div className="aspect-square rounded-2xl bg-gradient-to-br from-emerald-500/20 to-purple-500/20 p-1">
                 <div className="w-full h-full rounded-2xl bg-[#0a0a0a] flex items-center justify-center">
                   <div className="text-8xl">👨‍💻</div>
                 </div>
@@ -231,12 +232,12 @@ function About() {
                 transition={{ delay: 0.4 }}
               >
                 <motion.a
-                  href="#"
-                  className="px-6 py-3 bg-blue-500 text-white rounded-lg hover:bg-blue-600 transition-colors"
+                  href="#experience"
+                  className="px-6 py-3 bg-emerald-500 text-white rounded-lg hover:bg-emerald-600 transition-colors"
                   whileHover={{ scale: 1.05 }}
                   whileTap={{ scale: 0.95 }}
                 >
-                  Download CV
+                  View Experience
                 </motion.a>
               </motion.div>
             </motion.div>
@@ -247,13 +248,222 @@ function About() {
   );
 }
 
+function Experience() {
+  const experiences = [
+    {
+      title: "Senior Full Stack Developer",
+      company: "Tech Company Inc.",
+      period: "2022 - Present",
+      description: "Leading development of scalable web applications using React, Next.js, and Node.js. Mentoring junior developers and architecting cloud-based solutions.",
+      achievements: [
+        "Increased application performance by 40%",
+        "Led team of 5 developers",
+        "Implemented CI/CD pipeline",
+      ],
+    },
+    {
+      title: "Full Stack Developer",
+      company: "Startup Labs",
+      period: "2020 - 2022",
+      description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with designers to create responsive and accessible interfaces.",
+      achievements: [
+        "Built 10+ production applications",
+        "Reduced load time by 60%",
+        "Integrated payment systems",
+      ],
+    },
+    {
+      title: "Frontend Developer",
+      company: "Digital Agency",
+      period: "2018 - 2020",
+      description: "Created engaging user interfaces and interactive experiences. Worked closely with UX team to implement pixel-perfect designs.",
+      achievements: [
+        "Delivered 20+ client projects",
+        "Improved accessibility scores to 95+",
+        "Mentored 3 junior developers",
+      ],
+    },
+  ];
+
+  const education = [
+    {
+      degree: "MSc Computer Science",
+      school: "University of Ghana Legon-Accra, Ghana",
+      period: "2024 - 2026",
+      description: "Advanced studies in computer science with focus on modern computing technologies and research methodologies.",
+      link: "https://www.ug.edu.gh/",
+    },
+    {
+      degree: "Bachelor of Science in Computer Engineering",
+      school: "University of Energy and Natural Resources, Sunyani, Ghana",
+      period: "2016 - 2020",
+      description: "Comprehensive education in computer engineering fundamentals, software development, and system design.",
+      link: "https://uenr.edu.gh",
+    },
+  ];
+
+  return (
+    <section id="experience" className="py-32 px-6 bg-[#0f0f0f]">
+      <div className="max-w-6xl mx-auto">
+        <motion.div
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          viewport={{ once: true }}
+        >
+          <div className="flex justify-between items-center mb-16">
+            <h2 className="text-5xl md:text-6xl font-bold text-center flex-1 font-[var(--font-space-grotesk)]">
+              <span className="text-white">Experience & </span>
+              <span className="text-emerald-500">Education</span>
+            </h2>
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="px-6 py-3 border border-emerald-500 text-emerald-500 rounded-lg hover:bg-emerald-500 hover:text-white transition-colors hidden md:block"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download PDF
+            </motion.a>
+          </div>
+
+          {/* Work Experience */}
+          <div className="mb-20">
+            <h3 className="text-3xl font-bold text-white mb-12 flex items-center gap-3">
+              <span className="w-2 h-8 bg-emerald-500 rounded-full"></span>
+              Work Experience
+            </h3>
+            <div className="space-y-8">
+              {experiences.map((exp, index) => (
+                <motion.div
+                  key={exp.title}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative pl-8 border-l-2 border-gray-800 hover:border-emerald-500 transition-colors"
+                >
+                  {/* Timeline dot */}
+                  <motion.div
+                    className="absolute -left-[9px] top-0 w-4 h-4 bg-emerald-500 rounded-full"
+                    whileHover={{ scale: 1.5 }}
+                  />
+
+                  <motion.div
+                    className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-emerald-500/50 transition-all"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-1">{exp.title}</h4>
+                        <p className="text-emerald-400 font-medium">{exp.company}</p>
+                      </div>
+                      <span className="text-gray-500 mt-2 md:mt-0">{exp.period}</span>
+                    </div>
+                    <p className="text-gray-400 mb-4">{exp.description}</p>
+                    <ul className="space-y-2">
+                      {exp.achievements.map((achievement, i) => (
+                        <motion.li
+                          key={i}
+                          initial={{ opacity: 0, x: -20 }}
+                          whileInView={{ opacity: 1, x: 0 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: index * 0.1 + i * 0.05 }}
+                          className="flex items-start gap-2 text-gray-300"
+                        >
+                          <span className="text-emerald-500 mt-1">▸</span>
+                          {achievement}
+                        </motion.li>
+                      ))}
+                    </ul>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Education */}
+          <div>
+            <h3 className="text-3xl font-bold text-white mb-12 flex items-center gap-3">
+              <span className="w-2 h-8 bg-purple-500 rounded-full"></span>
+              Education
+            </h3>
+            <div className="space-y-8">
+              {education.map((edu, index) => (
+                <motion.div
+                  key={edu.degree}
+                  initial={{ opacity: 0, x: -50 }}
+                  whileInView={{ opacity: 1, x: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: index * 0.1 }}
+                  className="relative pl-8 border-l-2 border-gray-800 hover:border-purple-500 transition-colors"
+                >
+                  {/* Timeline dot */}
+                  <motion.div
+                    className="absolute -left-[9px] top-0 w-4 h-4 bg-purple-500 rounded-full"
+                    whileHover={{ scale: 1.5 }}
+                  />
+
+                  <motion.div
+                    className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-purple-500/50 transition-all"
+                    whileHover={{ y: -5 }}
+                  >
+                    <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-3">
+                      <div>
+                        <h4 className="text-2xl font-bold text-white mb-1">{edu.degree}</h4>
+                        <a
+                          href={edu.link}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-purple-400 font-medium hover:text-purple-300 transition-colors hover:underline"
+                        >
+                          {edu.school}
+                        </a>
+                      </div>
+                      <span className="text-gray-500 mt-2 md:mt-0">{edu.period}</span>
+                    </div>
+                    <p className="text-gray-400">{edu.description}</p>
+                  </motion.div>
+                </motion.div>
+              ))}
+            </div>
+          </div>
+
+          {/* Mobile Download Button */}
+          <motion.div
+            className="mt-12 text-center md:hidden"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+          >
+            <motion.a
+              href="/resume.pdf"
+              download
+              className="inline-block px-8 py-4 border border-emerald-500 text-emerald-500 rounded-lg hover:bg-emerald-500 hover:text-white transition-colors"
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+            >
+              Download PDF Resume
+            </motion.a>
+          </motion.div>
+        </motion.div>
+      </div>
+    </section>
+  );
+}
+
 function Skills() {
   const skills = [
+    { name: "Vue.js", level: 95 },
+    { name: "Nuxt.js", level: 95 },
     { name: "React", level: 90 },
     { name: "Next.js", level: 85 },
     { name: "TypeScript", level: 88 },
     { name: "Tailwind CSS", level: 92 },
     { name: "Node.js", level: 80 },
+    { name: "Express.js", level: 70 },
+    { name: "NestJS", level: 75 },
+    { name: "GraphQL", level: 65 },
+    { name: "Docker", level: 60 },
     { name: "Python", level: 75 },
   ];
 
@@ -267,7 +477,7 @@ function Skills() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center font-[var(--font-space-grotesk)]">
             <span className="text-white">Skills & </span>
-            <span className="text-blue-500">Expertise</span>
+            <span className="text-emerald-500">Expertise</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -279,15 +489,15 @@ function Skills() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -5 }}
-                className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-blue-500/50 transition-all"
+                className="bg-[#1a1a1a] p-6 rounded-xl border border-gray-800 hover:border-emerald-500/50 transition-all"
               >
                 <div className="flex justify-between items-center mb-4">
                   <h3 className="text-xl font-semibold text-white">{skill.name}</h3>
-                  <span className="text-blue-500 font-bold">{skill.level}%</span>
+                  <span className="text-emerald-500 font-bold">{skill.level}%</span>
                 </div>
                 <div className="w-full h-2 bg-gray-800 rounded-full overflow-hidden">
                   <motion.div
-                    className="h-full bg-gradient-to-r from-blue-500 to-purple-500"
+                    className="h-full bg-gradient-to-r from-emerald-500 to-purple-500"
                     initial={{ width: 0 }}
                     whileInView={{ width: `${skill.level}%` }}
                     viewport={{ once: true }}
@@ -309,7 +519,7 @@ function Projects() {
       title: "Project One",
       description: "A stunning web application built with modern technologies",
       tags: ["React", "Next.js", "Tailwind"],
-      gradient: "from-blue-500 to-cyan-500",
+      gradient: "from-emerald-500 to-cyan-500",
     },
     {
       title: "Project Two",
@@ -335,7 +545,7 @@ function Projects() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-16 text-center font-[var(--font-space-grotesk)]">
             <span className="text-white">Featured </span>
-            <span className="text-blue-500">Projects</span>
+            <span className="text-emerald-500">Projects</span>
           </h2>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -365,7 +575,7 @@ function Projects() {
                       {project.tags.map((tag) => (
                         <span
                           key={tag}
-                          className="px-3 py-1 bg-blue-500/10 text-blue-400 rounded-full text-sm"
+                          className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm"
                         >
                           {tag}
                         </span>
@@ -393,7 +603,7 @@ function Contact() {
         >
           <h2 className="text-5xl md:text-6xl font-bold mb-8 font-[var(--font-space-grotesk)]">
             <span className="text-white">Let's Work </span>
-            <span className="text-blue-500">Together</span>
+            <span className="text-emerald-500">Together</span>
           </h2>
           <p className="text-xl text-gray-400 mb-12">
             Have a project in mind? Let's create something amazing together.
@@ -407,15 +617,17 @@ function Contact() {
             transition={{ delay: 0.2 }}
           >
             <motion.a
-              href="mailto:your.email@example.com"
-              className="px-8 py-4 bg-blue-500 text-white rounded-full font-medium hover:bg-blue-600 transition-colors"
+              href="mailto:musah.abdulmalikgh@gmail.com"
+              className="px-8 py-4 bg-emerald-500 text-white rounded-full font-medium hover:bg-emerald-600 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               Send Email
             </motion.a>
             <motion.a
-              href="#"
+              href="https://linkedin.com/in/abdulmalikgh"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border border-gray-700 text-white rounded-full font-medium hover:border-gray-500 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
@@ -423,13 +635,30 @@ function Contact() {
               LinkedIn
             </motion.a>
             <motion.a
-              href="#"
+              href="https://github.com/abdulmalikgh"
+              target="_blank"
+              rel="noopener noreferrer"
               className="px-8 py-4 border border-gray-700 text-white rounded-full font-medium hover:border-gray-500 transition-colors"
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
             >
               GitHub
             </motion.a>
+          </motion.div>
+
+          {/* Contact Info */}
+          <motion.div
+            className="mt-12 flex flex-col sm:flex-row gap-4 justify-center items-center text-gray-400"
+            initial={{ opacity: 0 }}
+            whileInView={{ opacity: 1 }}
+            viewport={{ once: true }}
+            transition={{ delay: 0.3 }}
+          >
+            <a href="tel:+233249809695" className="hover:text-emerald-400 transition-colors">
+              +233 24 980 9695
+            </a>
+            <span className="hidden sm:inline">•</span>
+            <span>Ghana</span>
           </motion.div>
 
           <motion.div
@@ -440,7 +669,7 @@ function Contact() {
             transition={{ delay: 0.4 }}
           >
             <p className="text-gray-500">
-              © 2024 Portfolio. All rights reserved.
+              © 2025 Abdul-Malik Musah. All rights reserved.
             </p>
           </motion.div>
         </motion.div>
