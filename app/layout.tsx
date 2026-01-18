@@ -15,8 +15,13 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Portfolio | Developer & Designer",
+  title: "Abdul-Malik Musah",
   description: "A stunning portfolio showcasing creative work and technical expertise",
+  icons: {
+    icon: "/image.jpeg",
+    shortcut: "/image.jpeg",
+    apple: "/image.jpeg",
+  },
 };
 
 export default function RootLayout({

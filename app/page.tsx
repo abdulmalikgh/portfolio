@@ -2,6 +2,8 @@
 
 import { motion } from "framer-motion";
 import { useState, useEffect } from "react";
+import Image from "next/image";
+import { TypeAnimation } from "react-type-animation";
 
 export default function Home() {
   return (
@@ -132,7 +134,23 @@ function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.4 }}
           >
-            Developer & Designer crafting beautiful digital experiences
+            <TypeAnimation
+              sequence={[
+                'Full-Stack Engineer crafting beautiful digital experiences',
+                2000,
+                'Full-Stack Developer building scalable solutions',
+                2000,
+                'Backend & Frontend Architect crafting elegant systems',
+                2000,
+                'Microservices Developer building robust applications',
+                2000,
+              ]}
+              wrapper="span"
+              speed={50}
+              repeat={Infinity}
+              cursor={true}
+              className="inline-block"
+            />
           </motion.p>
 
           <motion.div
@@ -202,8 +220,14 @@ function About() {
               transition={{ duration: 0.8 }}
             >
               <div className="aspect-square rounded-2xl bg-gradient-to-br from-emerald-500/20 to-purple-500/20 p-1">
-                <div className="w-full h-full rounded-2xl bg-[#0a0a0a] flex items-center justify-center">
-                  <div className="text-8xl">👨‍💻</div>
+                <div className="w-full h-full rounded-2xl overflow-hidden relative">
+                  <Image
+                    src="/image.jpeg"
+                    alt="Abdul-Malik Musah"
+                    fill
+                    className="object-cover"
+                    priority
+                  />
                 </div>
               </div>
             </motion.div>
@@ -251,37 +275,56 @@ function About() {
 function Experience() {
   const experiences = [
     {
-      title: "Senior Full Stack Developer",
-      company: "Tech Company Inc.",
-      period: "2022 - Present",
-      description: "Leading development of scalable web applications using React, Next.js, and Node.js. Mentoring junior developers and architecting cloud-based solutions.",
+      title: "Full-Stack Software Developer",
+      company: "Right Com",
+      companyUrl: "https://rightcom.com/queue-management-software/",
+      period: "August 2022 - December 2024",
+      description: "Oversee the backend queue management with a focus on implementing effective business logic. Develop and sustain new user interfaces while seamlessly integrating frontend React components with backend APIs.",
       achievements: [
-        "Increased application performance by 40%",
-        "Led team of 5 developers",
-        "Implemented CI/CD pipeline",
+        "Implemented strategic code refactoring techniques, resulting in remarkable improvement in overall app speed",
+        "Actively engage in stand-up meetings and contribute to sprint planning sessions",
+        "Seamlessly integrated React components with backend APIs",
       ],
+      skills: ["React", "Node.js", "Express", "Queue Management", "REST API", "TypeScript"],
     },
     {
-      title: "Full Stack Developer",
-      company: "Startup Labs",
-      period: "2020 - 2022",
-      description: "Developed and maintained multiple client projects using modern web technologies. Collaborated with designers to create responsive and accessible interfaces.",
+      title: "Front-end Engineer",
+      company: "mNotify",
+      companyUrl: "https://bms.mnotify.com/",
+      period: "April 2021 - December 2022",
+      description: "Crafted responsive User and Admin dashboards by translating Figma UI designs into functional interfaces. Developed front-end services and incorporated them into a Restful API server within a micro-service architecture.",
       achievements: [
-        "Built 10+ production applications",
-        "Reduced load time by 60%",
-        "Integrated payment systems",
+        "Built responsive User and Admin dashboards from Figma designs",
+        "Integrated frontend services with Restful API in microservices architecture",
+        "Collaborated with UI/UX designers and backend developers for seamless integration",
       ],
+      skills: ["Vue.js", "SASS", "Element UI", "Bootstrap", "REST API", "Microservices"],
     },
     {
-      title: "Frontend Developer",
-      company: "Digital Agency",
-      period: "2018 - 2020",
-      description: "Created engaging user interfaces and interactive experiences. Worked closely with UX team to implement pixel-perfect designs.",
+      title: "Front-end Engineer",
+      company: "Mpedigree",
+      companyUrl: "https://mpedigree.com/",
+      period: "September 2019 - September 2023",
+      description: "Managed and enhanced the ecobankfintech software, introducing new features and updating the UI to align with contemporary web application standards. Led a three-person development team in creating highly responsive and scalable web applications.",
       achievements: [
-        "Delivered 20+ client projects",
-        "Improved accessibility scores to 95+",
-        "Mentored 3 junior developers",
+        "Led 3-person development team to create scalable web applications",
+        "Contributed to Africaboma's front-end, enabling 1,000+ Africans to submit creative art challenges",
+        "Integrated YouNoodle script to streamline application form submissions",
       ],
+      skills: ["Vue.js", "JavaScript", "Microservices", "HTML", "CSS"],
+    },
+    {
+      title: "Full Stack Engineer",
+      company: "Syncline IT Solutions (Infonaligy)",
+      companyUrl: "http://www.syncline.it/",
+      period: "April 2021 - September 2021",
+      description: "Played a key role in the development of the ATLAS General application, contributing to both the back-end and front-end within a micro-service architecture. Employed Laravel, TypeScript, and REST API to construct well-organized and rigorously tested RESTful APIs.",
+      achievements: [
+        "Developed ATLAS General application with full-stack contributions",
+        "Constructed well-organized and rigorously tested RESTful APIs",
+        "Transformed DOM PDF documents into pristine RESTful API using Laravel 8",
+      ],
+      skills: ["Laravel", "TypeScript", "REST API", "PHP", "FPDF", "Microservices"],
     },
   ];
 
@@ -355,12 +398,19 @@ function Experience() {
                     <div className="flex flex-col md:flex-row md:justify-between md:items-start mb-4">
                       <div>
                         <h4 className="text-2xl font-bold text-white mb-1">{exp.title}</h4>
-                        <p className="text-emerald-400 font-medium">{exp.company}</p>
+                        <a
+                          href={exp.companyUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-emerald-400 font-medium hover:text-emerald-300 transition-colors hover:underline"
+                        >
+                          {exp.company}
+                        </a>
                       </div>
                       <span className="text-gray-500 mt-2 md:mt-0">{exp.period}</span>
                     </div>
                     <p className="text-gray-400 mb-4">{exp.description}</p>
-                    <ul className="space-y-2">
+                    <ul className="space-y-2 mb-4">
                       {exp.achievements.map((achievement, i) => (
                         <motion.li
                           key={i}
@@ -375,6 +425,16 @@ function Experience() {
                         </motion.li>
                       ))}
                     </ul>
+                    <div className="flex flex-wrap gap-2 pt-2 border-t border-gray-800">
+                      {exp.skills.map((skill) => (
+                        <span
+                          key={skill}
+                          className="px-3 py-1 bg-emerald-500/10 text-emerald-400 rounded-full text-sm font-medium"
+                        >
+                          {skill}
+                        </span>
+                      ))}
+                    </div>
                   </motion.div>
                 </motion.div>
               ))}
@@ -465,6 +525,7 @@ function Skills() {
     { name: "GraphQL", level: 65 },
     { name: "Docker", level: 60 },
     { name: "Python", level: 75 },
+    { name: "Laravel", level: 70 },
   ];
 
   return (
@@ -516,22 +577,12 @@ function Skills() {
 function Projects() {
   const projects = [
     {
-      title: "Project One",
-      description: "A stunning web application built with modern technologies",
-      tags: ["React", "Next.js", "Tailwind"],
+      title: "Resume Builder Pro",
+      description: "A next-generation resume building platform with real-time preview, ATS-friendly layouts, and verification badges for students and professionals",
+      tags: ["Next.js", "TypeScript", "Zustand", "Tailwind CSS", "shadcn/ui"],
       gradient: "from-emerald-500 to-cyan-500",
-    },
-    {
-      title: "Project Two",
-      description: "An innovative solution to complex problems",
-      tags: ["TypeScript", "Node.js", "PostgreSQL"],
-      gradient: "from-purple-500 to-pink-500",
-    },
-    {
-      title: "Project Three",
-      description: "A beautiful and responsive design system",
-      tags: ["React", "Framer Motion", "CSS"],
-      gradient: "from-orange-500 to-red-500",
+      liveUrl: "https://resume-builder-amber-pi.vercel.app/",
+      githubUrl: "https://github.com/abdulmalikgh/resume-builder",
     },
   ];
 
@@ -557,19 +608,50 @@ function Projects() {
                 viewport={{ once: true }}
                 transition={{ delay: index * 0.1 }}
                 whileHover={{ y: -10 }}
-                className="group cursor-pointer"
+                className="group"
               >
-                <div className="bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all">
-                  <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden`}>
-                    <motion.div
-                      className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
-                      whileHover={{ scale: 1.05 }}
-                    >
-                      <span className="text-white font-semibold">View Project →</span>
-                    </motion.div>
-                  </div>
+                <div className="bg-[#1a1a1a] rounded-xl overflow-hidden border border-gray-800 hover:border-gray-700 transition-all relative">
+                  <a
+                    href={project.liveUrl || project.githubUrl || "#"}
+                    target={project.liveUrl || project.githubUrl ? "_blank" : undefined}
+                    rel={project.liveUrl || project.githubUrl ? "noopener noreferrer" : undefined}
+                    className="block"
+                  >
+                    <div className={`h-48 bg-gradient-to-br ${project.gradient} relative overflow-hidden cursor-pointer`}>
+                      <motion.div
+                        className="absolute inset-0 bg-black/50 flex items-center justify-center opacity-0 group-hover:opacity-100 transition-opacity"
+                        whileHover={{ scale: 1.05 }}
+                      >
+                        <span className="text-white font-semibold">
+                          {project.liveUrl ? "View Live →" : project.githubUrl ? "View Code →" : "View Project →"}
+                        </span>
+                      </motion.div>
+                    </div>
+                  </a>
                   <div className="p-6">
-                    <h3 className="text-2xl font-bold text-white mb-3">{project.title}</h3>
+                    <div className="flex items-start justify-between gap-2 mb-3">
+                      <h3 className="text-2xl font-bold text-white">{project.title}</h3>
+                      {project.githubUrl && project.liveUrl && (
+                        <motion.a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-400 hover:text-white transition-colors"
+                          whileHover={{ scale: 1.1 }}
+                          whileTap={{ scale: 0.95 }}
+                          onClick={(e) => e.stopPropagation()}
+                        >
+                          <svg
+                            className="w-6 h-6"
+                            fill="currentColor"
+                            viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg"
+                          >
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                          </svg>
+                        </motion.a>
+                      )}
+                    </div>
                     <p className="text-gray-400 mb-4">{project.description}</p>
                     <div className="flex flex-wrap gap-2">
                       {project.tags.map((tag) => (
