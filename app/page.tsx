@@ -240,13 +240,16 @@ function About() {
               className="space-y-6"
             >
               <p className="text-gray-400 text-lg leading-relaxed">
-                I'm a passionate developer with a keen eye for design and a love for creating
-                seamless user experiences. With expertise in modern web technologies, I bring
-                ideas to life through clean code and stunning visuals.
+                I&apos;m a full-stack software developer with over 5 years of experience building scalable web applications and microservices architectures. I specialize in creating high-performance solutions that combine intuitive user interfaces with robust backend systems.
               </p>
               <p className="text-gray-400 text-lg leading-relaxed">
-                When I'm not coding, you'll find me exploring new technologies, contributing
-                to open source, or working on side projects that push my creative boundaries.
+                My work has directly impacted hundreds of thousands of users—from developing enterprise queue management systems serving 100,000+ daily customers at MTN Nigeria to building insurance platforms across the United States. I&apos;m passionate about writing clean, efficient code that solves real business problems and delivers measurable results.
+              </p>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                I thrive in collaborative environments and have experience leading development teams and working through agile sprint cycles. My toolkit includes Vue.js, React, Nuxt.js, Next.js, Node.js, and Express.js, along with infrastructure tools like Redis, Bull MQ, and MQTT.
+              </p>
+              <p className="text-gray-400 text-lg leading-relaxed">
+                I believe great software is measured by the value it delivers. I&apos;m always looking for opportunities to optimize performance, enhance user experience, and contribute to products that make a meaningful difference.
               </p>
               <motion.div
                 className="flex gap-4 pt-4"
