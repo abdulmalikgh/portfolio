@@ -15,12 +15,14 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: "Abdul-Malik Musah",
-  description: "A stunning portfolio showcasing creative work and technical expertise",
+  title: "Abdul-Malik Musah | Full-Stack Software Developer",
+  description: "Full-stack software developer with 5+ years of experience building scalable web applications and microservices. Specialized in React, Vue.js, Node.js, and modern web technologies.",
   icons: {
-    icon: "/image.jpeg",
-    shortcut: "/image.jpeg",
-    apple: "/image.jpeg",
+    icon: [
+      { url: "/favicon-16x16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: "/apple-touch-icon.png",
   },
 };
 
